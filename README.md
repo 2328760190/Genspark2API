@@ -9,14 +9,11 @@ Genspark2API 是一个 API 代理服务,支持多账号管理、代理配置等�
 ### 1. Docker 命令行直接部署
 
 ```bash
-docker run -d --name genspark2api -p 3000:8666 -v ./data:/app/data rfym21/genspark2api:latest
-```
-
-### 2. docker-compose.yml 部署（推荐）
-
 ```bash
 docker run --name genspark2api -d --restart always -p 3000:8666 -v ./data:/app/data -e API_PATH="" -e IMAGE_COUNT=1 -e IMAGE_WAIT_TIME=25000 -e ACCOUNT_PATH=./data/account.txt -e ACCOUNT_MODE=1 -e API_KEY=sk-123456 -e PROXY_MODE=0 -e PROXY_URL=socks5://username:password@host:port -e PROXY_API="" rfym21/genspark2api:latest
 ```
+
+### 2. docker-compose.yml 部署（推荐）
 
 #### 前置要求
 
@@ -120,7 +117,7 @@ npm run dev
 
 ### 3. 使用 Hugging Face Space 部署
 
-复制 https://huggingface.co/spaces/rfymdev/g2api 到自己的空间，修改环境变量即可。
+复制 <https://huggingface.co/spaces/rfymdev/g2api> 到自己的空间，修改环境变量即可。
 
 ## 配置说明
 
