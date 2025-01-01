@@ -4,7 +4,6 @@ services:
     container_name: genspark2api
     image: rfym21/genspark2api:latest
     restart: always
-    build: .
     ports:
       - "3000:8666"
     volumes:
