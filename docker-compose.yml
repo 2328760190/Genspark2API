@@ -4,6 +4,7 @@ services:
     container_name: genspark2api
     image: rfym21/genspark2api:latest
     restart: always
+    build: .
     ports:
       - "3000:8666"
     volumes:
@@ -14,22 +15,12 @@ services:
       # 每次生成图片数
       - IMAGE_COUNT=1
       # 每张图片图片等待时间(共四张)
-      - IMAGE_WAIT_TIME=25000
-      # 账号存放文件，一行一个
-      - ACCOUNT_PATH=./data/account.txt
-      # 运行模式
-      # 0: 不使用账号，自行传入 session_id
-      # 1: 仅使用环境变量中的 session_id 多账号使用,(英文逗号)分隔
-      # 2: 仅使用文件中的 session_id (支持调用 /api/account/add 接口与注册机进行配合使用 )
-      # 3: 使用环境变量和文件中的账号，规则如上(开发中)
-      # 选择非0模式时，也可传入 session_id 使用
-      - ACCOUNT_MODE=1
+      - IMAGE_WAIT_TIME=30000
       # 请求身份验证(非0模式可用)
       - API_KEY=sk-123456
       # 代理配置
       # 0: 不使用代理
       # 1: 使用单代理
-      # 2: 使用代理池API(待开发)
       - PROXY_MODE=0
       # 代理地址
       - PROXY_URL=socks5://username:password@host:port
